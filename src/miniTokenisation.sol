@@ -62,6 +62,7 @@ contract MiniTokenisationFactory is Ownable {
         nextPropertyId += 1;
     }
 
+    // all view functions take no gas so easy display on frontend with repeated calls
     function getProperty(uint256 propertyId) public view returns (Property memory) {
         Property memory property = propertyIdToPropertyDetails[propertyId];
         if (property.id == 0) revert InvalidPropertyId();

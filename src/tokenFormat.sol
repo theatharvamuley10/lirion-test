@@ -46,7 +46,7 @@ contract Token is ERC20, Ownable {
         return true;
     }
 
-    // Returns days remaining until cooldown period is over
+    // returns days remaining until cooldown period is over
     function daysRemaining() external view returns (uint256) {
         uint256 elapsed = block.timestamp - timeOfCreation;
         if (elapsed >= COOLDOWN_PERIOD) {
@@ -55,7 +55,7 @@ contract Token is ERC20, Ownable {
         return (COOLDOWN_PERIOD - elapsed) / 1 days;
     }
 
-    // Check if cooldown period is over
+    // check if cooldown period is over
     function isCooldownOver() external view returns (bool) {
         return (block.timestamp - timeOfCreation) >= COOLDOWN_PERIOD;
     }
