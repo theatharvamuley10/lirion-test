@@ -37,7 +37,7 @@ contract MiniTokenisationFactory is Ownable {
         external
         returns (address tokenContract)
     {
-        if (percentTokenized = 0 || percentTokenized >= 100) revert InvalidPercentage();
+        if (percentTokenized == 0 || percentTokenized >= 100) revert InvalidPercentage();
         if (!valuation > 0) revert InvalidValuation();
 
         uint256 totalTokens = (valuation * percentTokenized) / (TOKEN_PRICE * 100);
